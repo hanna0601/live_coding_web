@@ -2,10 +2,16 @@
 
 ## Website
 <img width="1117" alt="Screenshot 2024-12-12 at 2 04 18 PM" src="https://github.com/user-attachments/assets/8fc7098e-5d7f-4dbb-86d7-fd7c0861322f" />
+<img width="999" alt="Screenshot 2024-12-12 at 2 06 45 PM" src="https://github.com/user-attachments/assets/d0792894-0dc4-4a4a-85e1-11fb78bba6cd" />
 <img width="1502" alt="Screenshot 2024-12-12 at 2 04 35 PM" src="https://github.com/user-attachments/assets/a864a554-190c-4416-8024-75700ce79612" />
+<img width="1499" alt="Screenshot 2024-12-12 at 2 06 59 PM" src="https://github.com/user-attachments/assets/5e123b74-9c3f-4be7-bddb-1bd8c49016fb" />
 <img width="1040" alt="Screenshot 2024-12-12 at 2 04 52 PM" src="https://github.com/user-attachments/assets/4e817654-54b0-417a-917b-9d85d70e7416" />
+<img width="979" alt="Screenshot 2024-12-12 at 2 07 16 PM" src="https://github.com/user-attachments/assets/4dd5afc9-84e0-4136-b150-072d30bd2364" />
 <img width="1099" alt="Screenshot 2024-12-12 at 2 05 03 PM" src="https://github.com/user-attachments/assets/6b8a0770-154f-4255-a608-0d2ff65a0650" />
+<img width="967" alt="Screenshot 2024-12-12 at 2 07 31 PM" src="https://github.com/user-attachments/assets/d00f7973-8e8e-4ca9-baab-bbe43e0489ba" />
 <img width="1150" alt="Screenshot 2024-12-12 at 2 05 49 PM" src="https://github.com/user-attachments/assets/ac4dcf5b-c5c1-4d11-a8ac-30a476a2b447" />
+<img width="1142" alt="Screenshot 2024-12-12 at 2 07 43 PM" src="https://github.com/user-attachments/assets/e54f5ffb-0d4b-47eb-9d66-3babe8e2d46d" />
+
 
 
 ## Model Design
