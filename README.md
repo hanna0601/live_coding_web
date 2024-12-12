@@ -1,5 +1,13 @@
 # Scriptorium Project Documentation
 
+## Website
+<img width="1117" alt="Screenshot 2024-12-12 at 2 04 18 PM" src="https://github.com/user-attachments/assets/8fc7098e-5d7f-4dbb-86d7-fd7c0861322f" />
+<img width="1502" alt="Screenshot 2024-12-12 at 2 04 35 PM" src="https://github.com/user-attachments/assets/a864a554-190c-4416-8024-75700ce79612" />
+<img width="1040" alt="Screenshot 2024-12-12 at 2 04 52 PM" src="https://github.com/user-attachments/assets/4e817654-54b0-417a-917b-9d85d70e7416" />
+<img width="1099" alt="Screenshot 2024-12-12 at 2 05 03 PM" src="https://github.com/user-attachments/assets/6b8a0770-154f-4255-a608-0d2ff65a0650" />
+<img width="1150" alt="Screenshot 2024-12-12 at 2 05 49 PM" src="https://github.com/user-attachments/assets/ac4dcf5b-c5c1-4d11-a8ac-30a476a2b447" />
+
+
 ## Model Design
 
 ### `User` Model
