@@ -1,0 +1,145 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  email        String        @unique
+  passwordHash String
+  avatarUrl    String?
+  phoneNumber  String?
+  templates    Template[]    @relation("UserTemplates")
+  blogPosts    BlogPost[]
+  comments     Comment[]
+  commentReports CommentReport[]
+  postReports    PostReport[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  isAdmin      Boolean       @default(false)
+  commentVotes CommentVote[]
+  PostVote     PostVote[]
+  savedTemplates   Template[]    @relation("UserSavedTemplates") // Direct relation to saved templates
+  username       String        @unique
+}
+
+model Template {
+  id          Int        @id @default(autoincrement())
+  title       String
+  explanation String
+  tags        Tag[]      @relation("TemplateTags")
+  codeContent String
+  language    String
+  author      User       @relation("UserTemplates", fields: [authorId], references: [id])
+  authorId    Int
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  blogPosts   BlogPost[] @relation("BlogPostTemplates")
+  usersSaved     User[]     @relation("UserSavedTemplates") // Direct relation to users who saved this template
+  forkFrom      Template?   @relation("TemplateForks", fields: [forkFromId], references: [id])
+  forkFromId    Int?
+  forks         Template[]  @relation("TemplateForks")
+}
+
+model BlogPost {
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String
+  tags        Tag[]      @relation("BlogPostTags")
+  content     String
+  author      User       @relation(fields: [authorId], references: [id])
+  authorId    Int
+  comments    Comment[]
+  upvotes     Int        @default(0)
+  downvotes   Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  isHidden    Boolean    @default(false)
+  templates   Template[] @relation("BlogPostTemplates")
+  votes       PostVote[]
+  reports     PostReport[] @relation("BlogPostReports")
+}
+
+model Comment {
+  id        Int           @id @default(autoincrement())
+  content   String
+  author    User          @relation(fields: [authorId], references: [id])
+  authorId  Int
+  post      BlogPost      @relation(fields: [postId], references: [id])
+  postId    Int
+  parentId  Int?
+  parent    Comment?      @relation("CommentToComment", fields: [parentId], references: [id])
+  replies   Comment[]     @relation("CommentToComment")
+  upvotes   Int           @default(0)
+  downvotes Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  isHidden  Boolean       @default(false)
+  votes     CommentVote[]
+  reports   CommentReport[] @relation("CommentReports")
+}
+
+model CommentVote {
+  id        Int      @id @default(autoincrement())
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  commentId Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  voteType  String // 'upvote' or 'downvote'
+  createdAt DateTime @default(now())
+
+  @@unique([userId, commentId])
+}
+
+model PostReport {
+  id          Int      @id @default(autoincrement())
+  explanation String
+  reporter    User     @relation(fields: [reporterId], references: [id])
+  reporterId  Int
+  contentId   Int
+  contentType String // 'BlogPost' or 'Comment'
+  createdAt   DateTime @default(now())
+  blogPost    BlogPost  @relation("BlogPostReports", fields: [contentId], references: [id]) // Added relation back to BlogPost
+}
+
+model CommentReport {
+  id          Int      @id @default(autoincrement())
+  explanation String
+  reporter    User     @relation(fields: [reporterId], references: [id])
+  reporterId  Int
+  contentId   Int
+  contentType String // 'BlogPost' or 'Comment'
+  createdAt   DateTime @default(now())
+  comment     Comment    @relation("CommentReports", fields: [contentId], references: [id]) // Added relation back to Comment
+}
+
+model Tag {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  templates Template[] @relation("TemplateTags")
+  blogPosts BlogPost[] @relation("BlogPostTags")
+}
+
+model PostVote {
+  id        Int      @id @default(autoincrement())
+  post      BlogPost @relation(fields: [postId], references: [id])
+  postId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  voteType  String // 'upvote' or 'downvote'
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}

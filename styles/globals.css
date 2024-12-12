@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #3b82f6;
+  --secondary: #1e293b;
+  --muted: #6b7280;
+  --border: rgba(255, 255, 255, 0.1);
+  --editor-background: #000000;
+  --editor-foreground: #ffffff;
+  --editor-keyword: #ff79c6;
+  --editor-comment: #6272a4;
+  --editor-string: #f1fa8c;
+  --editor-function: #50fa7b;
+  --editor-number: #bd93f9;
+  --editor-operator: #ff79c6;
+  --editor-property: #66d9ef;
+  --editor-type: #8be9fd;
+  --editor-class: #8be9fd;
+  --editor-definition: #50fa7b;
+  --editor-variable: #e4e4e7;
+  --editor-gutter: #636d83;
+  --editor-activeLine: rgba(255, 255, 255, 0.05);
+  --editor-selectionMatch: rgba(255, 255, 255, 0.1);
+  --editor-type: #c18401;
+  --editor-class: #c18401;
+  --editor-definition: #4078f2;
+  --editor-variable: #ffffff;
+  --editor-gutter: #71717a;
+  --editor-activeLine: rgba(0, 0, 0, 0.05);
+  --editor-selectionMatch: rgba(0, 0, 0, 0.05);
+  --completion-background: #1a1a1a;
+  --completion-foreground: #ffffff;
+  --completion-selected-background: #2c313a;
+  --completion-matching-background: rgba(255, 255, 255, 0.1);
+  --tooltip-background: rgba(0, 0, 0, 0.95);
+  --tooltip-foreground: #ffffff;
+  --tooltip-border: #2c313a;
+}
+
+:root[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #2563eb;
+  --secondary: #f3f4f6;
+  --muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.1);
+  --editor-background: #ffffff;
+  --editor-foreground: #383a42;
+  --editor-keyword: #a626a4;
+  --editor-comment: #a0a1a7;
+  --editor-string: #50a14f;
+  --editor-function: #4078f2;
+  --editor-number: #986801;
+  --editor-operator: #383a42;
+  --editor-property: #4078f2;
+  --editor-type: #c18401;
+  --editor-class: #c18401;
+  --editor-definition: #4078f2;
+  --editor-variable: #383a42;
+  --editor-gutter: #9d9d9f;
+  --editor-activeLine: rgba(0, 0, 0, 0.05);
+  --editor-selectionMatch: rgba(0, 0, 0, 0.05);
+  --completion-background: #ffffff;
+  --completion-foreground: #383a42;
+  --completion-selected-background: #e5e7eb;
+  --completion-matching-background: rgba(0, 0, 0, 0.1);
+  --tooltip-background: rgba(255, 255, 255, 0.95);
+  --tooltip-foreground: #383a42;
+  --tooltip-border: #e5e7eb;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+[data-theme="dark"] body {
+  background: linear-gradient(
+    135deg,
+    rgb(0, 0, 0) 0%,
+    rgb(17, 24, 39) 50%,
+    rgb(0, 0, 0) 100%
+  );
+}
+
+[data-theme="light"] body {
+  background: linear-gradient(
+    135deg,
+    rgb(255, 255, 255) 0%,
+    rgb(243, 244, 246) 50%,
+    rgb(255, 255, 255) 100%
+  );
+}

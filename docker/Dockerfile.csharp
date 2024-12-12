@@ -1,0 +1,17 @@
+# docker-images/Dockerfile.csharp
+
+FROM ubuntu:20.04
+WORKDIR /app
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    mono-mcs \
+    mono-runtime \
+    ca-certificates-mono \
+    && rm -rf /var/lib/apt/lists/*
+# set non-root user
+RUN useradd -m runner
+USER runner
+
+# set home directory
+ENV HOME=/app

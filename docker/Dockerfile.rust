@@ -1,0 +1,15 @@
+FROM alpine:3.18
+
+# Install only the necessary components
+RUN apk add --no-cache \
+    rust \
+    cargo \
+    musl-dev
+
+WORKDIR /app
+
+# set non-privileged user
+RUN adduser -D runner
+USER runner
+
+ENV HOME=/app
