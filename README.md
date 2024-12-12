@@ -173,14 +173,16 @@ model PostReport {
     - `base_url`: `http://localhost:3000`
     - `access_token`: leave it blank
     - as below:
-    - ![doc_p1](../../../group_8343/PP1/pp1/doc_p1.png)
+    - <img width="1273" alt="doc_p1" src="https://github.com/user-attachments/assets/8ae362a1-74fc-4911-9512-667439368c5b" />
+
 - Now you are able to run the requests
 - If the request require access token:
   - We need to set Authorization as below:
     - choose the new environment
     - In Authentication set `Bearer Token`
     - write `{{access_token}}` in the box
-  - ![doc_p1](../../../group_8343/PP1/pp1/doc_p2.png)
+  - <img width="1089" alt="doc_p2" src="https://github.com/user-attachments/assets/a3961bcc-cfe6-4838-9a65-b5abe90e927b" />
+
 - After run the `login` requests, the  `access_token` will be saved in the environment
   - Example 1: as admin
     - run `Admin Login` first to store the admin's `access_token` in environment
